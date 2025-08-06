@@ -10,9 +10,9 @@ import Ayarlar from "./components/Settings";
 import Sidebar from "./components/Sidebar";
 import DeleteModal from "./components/DeleteModal";
 import "./components/Style/AdminPanel.css";
-import API_BASE_URL from "../../config/api";
 
-const API_URL = `${API_BASE_URL}/api/blogs`;
+const API_URL = "http://localhost:5000/api/blogs";
+
 // Form reducer for better state management
 const initialFormState = {
   title: "",

@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./BlogDetail.css";
-import API_BASE_URL from "../../config/api";
 
 const BlogDetail = () => {
   const { slug } = useParams(); // URL'den slug parametresini al
@@ -36,7 +35,7 @@ const BlogDetail = () => {
         setBlog(data);
 
         // Görüntülenme sayısını artır
-        await fetch(`${API_BASE_URL}/api/blogs/increment-views/${slug}`, {
+        await fetch(`http://localhost:5000/api/blogs/increment-views/${slug}`, {
           method: "POST",
         });
       } catch (error) {
@@ -71,7 +70,7 @@ const BlogDetail = () => {
     if (liked) return; // İkinci kez beğenilmesin
     try {
       const res = await fetch(
-        `${API_BASE_URL}/api/blogs/increment-likes/${slug}`,
+        `http://localhost:5000/api/blogs/increment-likes/${slug}`,
         {
           method: "POST",
         }
