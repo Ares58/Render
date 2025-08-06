@@ -63,4 +63,8 @@ router.post("/logout", (req, res) => {
   res.json({ message: "Çıkış yapıldı" });
 });
 
+router.get("/", (req, res) => {
+  res.send("Auth API çalışıyor");
+});
+
 module.exports = router;
