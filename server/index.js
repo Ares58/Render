@@ -15,8 +15,7 @@ app.use(cookieParser());
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173", // React frontend adresin
-    credentials: true, // cookie gönderimi için önemli
+    origin: ["http://localhost:5173", "https://savtek.onrender.com"],
   })
 );
 app.use("/api/blogs", blogRoutes);
