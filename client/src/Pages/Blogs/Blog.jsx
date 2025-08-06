@@ -16,7 +16,8 @@ const BlogPage = () => {
   useEffect(() => {
     // Backend API'den blogları çek
     axios
-      .get("http://localhost:5000/api/blogs")
+      .get(`${import.meta.env.VITE_API_URL}/api/blogs`)
+
       .then((res) => {
         setBlogPosts(res.data);
         setLoading(false);
