@@ -4,6 +4,7 @@ import { Search, Calendar, User, Clock, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Blogs.css";
+import API_BASE_URL from "../../config/api";
 
 const BlogPage = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const BlogPage = () => {
   useEffect(() => {
     // Backend API'den blogları çek
     axios
-      .get("http://localhost:5000/api/blogs")
+      .get(`${API_BASE_URL}/api/blogs`) // Bu satırı değiştirin
       .then((res) => {
         setBlogPosts(res.data);
         setLoading(false);

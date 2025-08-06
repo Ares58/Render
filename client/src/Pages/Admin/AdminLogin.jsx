@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../../config/api";
 import "./AdminLogin.css";
 
 function AdminLogin() {
@@ -36,9 +37,9 @@ function AdminLogin() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${API_BASE_URL}/api/auth/login`, // Bu satırı değiştirin
         { username, password },
-        { withCredentials: true } // Cookie için önemli
+        { withCredentials: true }
       );
 
       if (res.data.message === "Giriş başarılı") {
