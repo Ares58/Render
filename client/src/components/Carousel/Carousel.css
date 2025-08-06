@@ -1,0 +1,202 @@
+/* Swiper Container Styles */
+.mySwiper {
+  width: 100%;
+  height: 500px;
+  padding: 50px 0;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 400px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.swiper-slide:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Slide Content */
+.slide-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  padding: 30px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateY(0);
+  transition: all 0.5s ease;
+  opacity: 1;
+}
+
+/* Aktif olmayan slide'larda içeriği hafif şeffaf yap */
+.swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(
+    .swiper-slide-prev
+  )
+  .slide-content {
+  opacity: 0.7;
+}
+
+/* Center slide (aktif) için tam görünür */
+.swiper-slide-active .slide-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Aktif slide'ın yanındaki slide'lar için de görünür */
+.swiper-slide-next .slide-content,
+.swiper-slide-prev .slide-content {
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+.slide-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.slide-description {
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  margin: 0;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  line-height: 1.4;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+}
+
+.slide-link {
+  display: inline-block;
+  background: var(
+    --primary-gradient,
+    linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+  );
+  color: white;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  margin: 0 auto;
+  display: block;
+  width: fit-content;
+  text-shadow: none;
+}
+
+.slide-link:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Pagination Styles */
+.swiper-pagination {
+  bottom: 20px !important;
+}
+
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0.7;
+  width: 12px;
+  height: 12px;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary-gradient, #667eea);
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* Coverflow Shadow */
+.swiper-slide-shadow-coverflow {
+  border-radius: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .mySwiper {
+    height: 450px;
+  }
+
+  .swiper-slide {
+    width: 280px;
+    height: 350px;
+  }
+
+  .slide-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mySwiper {
+    height: 400px;
+    padding: 30px 0;
+  }
+
+  .swiper-slide {
+    width: 250px;
+    height: 300px;
+  }
+
+  .slide-content {
+    padding: 25px 20px;
+  }
+
+  .slide-title {
+    font-size: 1.3rem;
+  }
+
+  .slide-description {
+    font-size: 0.9rem;
+  }
+
+  .slide-link {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mySwiper {
+    height: 350px;
+    padding: 20px 0;
+  }
+
+  .swiper-slide {
+    width: 220px;
+    height: 280px;
+  }
+}

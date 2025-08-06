@@ -347,7 +347,6 @@
 
 /* Sections */
 .features,
-.examples,
 .benefits {
   padding: 6rem 0;
   position: relative;
@@ -643,120 +642,6 @@
   transform: scale(1.1);
 }
 
-/* Examples Grid */
-.examples-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-.example-card {
-  position: relative;
-  height: 300px;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: card-fade-in 0.6s ease forwards;
-}
-
-.example-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.example-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.example-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.example-card:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.example-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-}
-
-.example-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.4s ease;
-}
-
-.example-card:hover .example-bg {
-  transform: scale(1.1);
-}
-
-.example-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 2rem;
-  transition: all 0.3s ease;
-}
-
-.example-card:hover .example-overlay {
-  background: linear-gradient(
-    135deg,
-    rgba(102, 126, 234, 0.7) 0%,
-    rgba(118, 75, 162, 0.8) 100%
-  );
-}
-
-.example-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 0.5rem;
-  transform: translateY(20px);
-  opacity: 0;
-  transition: all 0.3s ease 0.1s;
-}
-
-.example-card:hover .example-title {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.example-subtitle {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1rem;
-  transform: translateY(20px);
-  opacity: 0;
-  transition: all 0.3s ease 0.2s;
-}
-
-.example-card:hover .example-subtitle {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.example-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
-
-.example-card:hover .example-icon {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
 /* Benefits Section */
 .benefits-content {
   max-width: 800px;
@@ -787,25 +672,6 @@
 .benefit-item:nth-child(odd) {
   animation: slide-in-left 0.6s ease forwards;
   transform: translateX(30px);
-}
-
-.benefit-item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.benefit-item:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.benefit-item:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.benefit-item:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.benefit-item:nth-child(5) {
-  animation-delay: 0.5s;
-}
-.benefit-item:nth-child(6) {
-  animation-delay: 0.6s;
 }
 
 @keyframes slide-in-right {
@@ -937,10 +803,6 @@
   .news-card {
     flex: 0 0 calc(50% - 0.5rem);
     padding: 2rem;
-  }
-
-  .examples-grid {
-    grid-template-columns: 1fr;
   }
 
   .benefits-grid {

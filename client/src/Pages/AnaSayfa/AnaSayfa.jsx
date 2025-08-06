@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/Navbar/Navbar"; // Navbar'ı import et
 import Bg1 from "../../img/bg1.jpg";
 import "./AnaSayfa.css";
+import { Carousel } from "../../components/Carousel/Carousel";
 
 const EgeSavtek = () => {
   // Carousel State
@@ -200,83 +201,6 @@ const EgeSavtek = () => {
     },
   ];
 
-  // Project cards data
-  const projectCards = [
-    {
-      bgImage:
-        "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      icon: (
-        <svg
-          width="48"
-          height="48"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <polygon points="5,3 19,12 5,21 5,3" />
-        </svg>
-      ),
-      title: "ROV",
-      subtitle: "Sualtı Araştırma Robotu",
-    },
-    {
-      bgImage:
-        "https://images.unsplash.com/photo-1614728423169-3f65fd722da5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      icon: (
-        <svg
-          width="48"
-          height="48"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <polygon points="23,7 16,12 23,17 23,7" />
-          <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-        </svg>
-      ),
-      title: "Vortex",
-      subtitle: "Hava Aracı Sistemi",
-    },
-    {
-      bgImage:
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      icon: (
-        <svg
-          width="48"
-          height="48"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="M12,22s8-4 8-10V5l-8-3-8,3v7c0,6 8,10 8,10z" />
-        </svg>
-      ),
-      title: "Hava Savunma",
-      subtitle: "Güvenlik Sistemi",
-    },
-    {
-      bgImage:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      icon: (
-        <svg
-          width="48"
-          height="48"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="m8 3 4 8 5-5v11H3V6l5 5z" />
-        </svg>
-      ),
-      title: "Robo Taksi",
-      subtitle: "Otonom Taşıma Sistemi",
-    },
-  ];
-
   // Benefit items data
   const benefitItems = [
     "Türkiye'nin önde gelen savunma teknolojileri topluluğu",
@@ -461,43 +385,7 @@ const EgeSavtek = () => {
 
       {/* Projects Section */}
       <section id="projects" className="examples" data-animate>
-        <div className="container">
-          <div className="section-header">
-            <div className="section-badge">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M12,22s8-4 8-10V5l-8-3-8,3v7c0,6 8,10 8,10z" />
-              </svg>
-              <span>Projeler</span>
-            </div>
-            <h2 className="section-title">Geliştirdiğimiz Projeler</h2>
-            <p className="section-description">
-              Savunma teknolojileri alanında geliştirdiğimiz yenilikçi projeler
-            </p>
-          </div>
-
-          <div className="examples-grid">
-            {projectCards.map((project, index) => (
-              <div className="example-card" key={index}>
-                <div
-                  className="example-bg"
-                  style={{ backgroundImage: `url(${project.bgImage})` }}
-                ></div>
-                <div className="example-overlay">
-                  {project.icon}
-                  <h3 className="example-title">{project.title}</h3>
-                  <p className="example-subtitle">{project.subtitle}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Carousel />
       </section>
 
       {/* Benefits Section */}
