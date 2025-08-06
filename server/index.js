@@ -16,8 +16,10 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://savtek.onrender.com"],
+    credentials: true,
   })
 );
+
 app.use("/api/blogs", blogRoutes);
 
 // MongoDB bağlantısı
