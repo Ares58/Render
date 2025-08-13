@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
-import { Search, Calendar, User, Clock, ArrowRight } from "lucide-react";
+import { Search, Calendar, User, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Blogs.css";
+import Footer from "../../components/Footer/Footer";
 
 const BlogPage = () => {
   const navigate = useNavigate();
 
   const [blogPosts, setBlogPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Tümü");
 
@@ -28,25 +28,7 @@ const BlogPage = () => {
       });
   }, []);
 
-  const renderLoadingParticles = () => {
-    const particles = [];
-    for (let i = 0; i < 25; i++) {
-      particles.push(
-        <div
-          key={i}
-          className="loading-particle"
-          style={{
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 4}s`,
-            animationDuration: `${Math.random() * 2 + 3}s`,
-          }}
-        />
-      );
-    }
-    return particles;
-  };
-
-  // Kategorileri backend’den gelen bloglardan oluştur
+  // Kategorileri backend'den gelen bloglardan oluştur
   const categories = useMemo(() => {
     return ["Tümü", ...new Set(blogPosts.map((post) => post.category))];
   }, [blogPosts]);
@@ -126,63 +108,6 @@ const BlogPage = () => {
       </div>
     </article>
   );
-
-  if (loading) {
-    return (
-      <div className="blog-container">
-        <Navbar />
-        <div className="loading-container">
-          <div className="loading-particles">{renderLoadingParticles()}</div>
-
-          <div className="loading-content">
-            <div className="loading-badge">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="m8 3 4 8 5-5v11H3V6l5 5z" />
-              </svg>
-              <span>Blog Yükleniyor</span>
-            </div>
-
-            <div className="loading-spinner-container">
-              <div className="loading-spinner"></div>
-            </div>
-
-            <h2 className="loading-title">SAVTEK BLOG</h2>
-            <p className="loading-text">
-              En güncel teknoloji yazıları yükleniyor...
-            </p>
-
-            <div className="loading-tips">
-              <div className="loading-tips-title">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="m9 12 2 2 4-4" />
-                </svg>
-                İpucu
-              </div>
-              <p className="loading-tips-text">
-                Arama özelliğini kullanarak istediğiniz konudaki yazıları
-                kolayca bulabilirsiniz.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="blog-container">
@@ -284,24 +209,7 @@ const BlogPage = () => {
         )}
       </div>
       {/* Newsletter Section */}
-      <footer id="contact" className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-title">
-              Ege'nin en büyük savunma teknolojileri topluluğu.
-            </div>
-            <p className="footer-description">
-              Sizleri de yanımızda görmek isteriz
-            </p>
-            <div className="footer-links">
-              <a href="#">Gizlilik</a>
-              <a href="#">Kullanım Koşulları</a>
-              <a href="#">Destek</a>
-              <a href="#">İletişim</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

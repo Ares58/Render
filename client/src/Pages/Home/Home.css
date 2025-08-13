@@ -1,0 +1,138 @@
+/* ==============================================
+   UNIFIED HOME.CSS
+   ============================================== */
+
+/* App Container */
+.app {
+  min-height: 100vh;
+  background: var(--background-gradient);
+  position: relative;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  width: 50px;
+  height: 50px;
+  background: var(--primary-gradient);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: var(--text-xl);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-primary);
+  transition: var(--transition-bounce);
+  z-index: 1000;
+  animation: slideInUp 0.3s ease-out;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-primary-hover);
+  background: var(--reverse-gradient);
+}
+
+.scroll-to-top:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.scroll-to-top:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+/* Slide in animation for scroll to top button */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: var(--text-4xl);
+  }
+
+  .hero-description {
+    font-size: var(--text-lg);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .section-title {
+    font-size: var(--text-4xl);
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-item {
+    padding: var(--space-md);
+  }
+
+  /* Mobile scroll to top button adjustments */
+  .scroll-to-top {
+    bottom: var(--space-xl);
+    right: var(--space-xl);
+    width: 45px;
+    height: 45px;
+    font-size: var(--text-lg);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-buttons {
+    flex-direction: row;
+    gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: var(--text-3xl);
+  }
+
+  .stat-number {
+    font-size: var(--text-3xl);
+  }
+
+  .benefits-grid {
+    gap: var(--space-md);
+  }
+
+  .benefit-item {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-md);
+  }
+
+  /* Smaller mobile devices */
+  .scroll-to-top {
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    width: 40px;
+    height: 40px;
+    font-size: var(--text-base);
+  }
+}
